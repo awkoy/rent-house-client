@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import LoginForm from "../components/forms/LoginForm";
-import Title from "../components/Title";
 
 export default class Login extends Component {
 
@@ -12,7 +11,6 @@ export default class Login extends Component {
     return (
       <div className="container">
         <LoginForm onSubmit={this.handleSubmit} />
-        <Title pidaras="gavno"  idiNahui={this.handleClick} modificator="red"/>
       </div>
     );
   }

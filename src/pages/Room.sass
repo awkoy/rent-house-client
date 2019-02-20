@@ -1,0 +1,46 @@
+.room
+  padding: 48px 0
+  .container
+    max-width: 900px
+  &__wrapper
+    display: flex
+    justify-content: space-between
+  &__main
+    &__head
+      padding-bottom: 24px
+      &__date
+        color: grey
+        font-size: 16px
+      &__title
+        margin: 24px 0
+        font-size: 30px
+    &__details
+      padding: 24px 48px
+      border-top: 1px solid darkgrey
+      border-bottom: 1px solid darkgrey
+      &__list
+        display: flex
+        justify-content: space-between
+        align-items: center
+      &__item
+        text-align: center
+      &__value
+        font-size: 30px
+        &--text
+          font-size: 20px
+    &__desc
+      padding: 24px 0
+    &__features
+      padding: 24px 0
+      &__title
+        margin-bottom: 12px
+        font-weight: 900
+      &__list
+        display: flex
+        flex-wrap: wrap
+      &__item
+        width: 50%
+        margin-bottom: 12px
+        &.disabled
+          color: grey
+          text-decoration: line-through 

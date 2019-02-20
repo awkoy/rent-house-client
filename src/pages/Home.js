@@ -1,29 +1,22 @@
 import React, { Component } from "react";
-import Title from "../components/Title";
+import { Link } from "react-router-dom";
 
 export default class Home extends Component {
-
-  titles = [
-    {
-      name: 'allo',
-      age: '252'
-    },
-    {
-      name: 'allo2',
-      age: '251'
-    },
-    {
-      name: 'allo3',
-      age: '253'
-    }
-  ];
-
-  allTitles = this.titles.map(el => <Title pidaras={el.name} age={el.age}/>)
-
   render() {
+    const links = [
+      {
+        name: "Список квартир",
+        path: "rooms"
+      },
+      {
+        name: "Добавить квартиру",
+        path: "add-room"
+      }
+    ];
+
     return (
       <div className="container">
-        {this.allTitles}
+        {links.map(el => <Link to={el.path}>{el.name}</Link>)}
       </div>
     );
   }
