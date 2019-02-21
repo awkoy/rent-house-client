@@ -28,7 +28,7 @@ class App extends Component {
           <Route path="/rooms" component={Rooms} />
           <Route path="/room/:id" component={Room} />
           <PrivateRoute path="/add-room" component={AddRoom} />
-          <Route path="/profile" component={Profile} />
+          <PrivateRoute path="/profile" component={Profile} />
           <Route component={NotFound}/>
         </Switch>
       </>

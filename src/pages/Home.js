@@ -11,9 +11,13 @@ export default class Home extends Component {
       {
         name: "Добавить квартиру",
         path: "add-room"
+      },
+      {
+        name: "Личный кабинет",
+        path: "profile"
       }
     ];
-    
+
     const linkItems = links.map((el,i) => <Link className="room__sidebar__contact-button" key={i} to={el.path}>{el.name}</Link>);
 
     return (
