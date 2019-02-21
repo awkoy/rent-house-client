@@ -13,10 +13,12 @@ export default class Home extends Component {
         path: "add-room"
       }
     ];
+    
+    const linkItems = links.map((el,i) => <Link className="room__sidebar__contact-button" key={i} to={el.path}>{el.name}</Link>);
 
     return (
       <div className="container">
-        {links.map(el => <Link className="room__sidebar__contact-button" to={el.path}>{el.name}</Link>)}
+        {linkItems}
       </div>
     );
   }

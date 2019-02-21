@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
 
+import PrivateRoute from "./components/common/PrivateRoute";
+import NoPrivateRoute from "./components/common/NoPrivateRoute";
+
 import Header from "./components/common/Header/Header";
 
 import Home from './pages/Home';
@@ -18,11 +21,12 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/registration" component={Registration} />
+          <Route exact path="/" component={Login} />
+          <NoPrivateRoute path="/login" component={Login} />
+          <NoPrivateRoute path="/registration" component={Registration} />
           <Route path="/rooms" component={Rooms} />
           <Route path="/room/:id" component={Room} />
-          <Route path="/add-room" component={AddRoom} />
+          <PrivateRoute path="/add-room" component={AddRoom} />
           <Route component={NotFound}/>
         </Switch>
       </>
