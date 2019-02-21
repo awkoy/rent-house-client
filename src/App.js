@@ -21,7 +21,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/registration" component={Registration} />
           <Route path="/rooms" component={Rooms} />
-          <Route path="/room" component={Room} />
+          <Route path="/room/:id" component={Room} />
           <Route path="/add-room" component={AddRoom} />
           <Route component={NotFound}/>
         </Switch>

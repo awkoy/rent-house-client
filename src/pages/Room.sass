@@ -1,11 +1,13 @@
 .room
   padding: 48px 0
   .container
-    max-width: 900px
+    max-width: 1000px
   &__wrapper
     display: flex
     justify-content: space-between
+    align-items: flex-start
   &__main
+    padding-right: 48px
     &__head
       padding-bottom: 24px
       &__date
@@ -43,4 +45,38 @@
         margin-bottom: 12px
         &.disabled
           color: grey
-          text-decoration: line-through 
+          text-decoration: line-through
+  &__sidebar
+    width: 335px
+    background-color: #fff
+    padding: 24px
+    text-align: center
+    &__price
+      font-size: 30px
+      font-weight: 900
+      &--month
+        font-size: 16px
+        font-weight: normal
+    &__contact-button
+      border: none
+      max-width: 300px
+      font-size: 16px
+      font-weight: 900
+      display: flex
+      justify-content: center
+      align-items: center
+      background-color: #ff4729
+      color: #fff
+      padding: 12px 24px
+      border-radius: 4px
+      margin: 24px 0
+      cursor: pointer
+      transition: .5s ease-in-out
+      &:hover
+        background-color: rgba(#ff4729, .9)
+    &__favorite
+      color: grey
+      cursor: pointer
+      transition: .3s ease-in-out
+      &:hover
+        color: #ff4729

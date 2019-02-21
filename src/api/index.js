@@ -8,13 +8,13 @@ const API = axios.create({
 
 const req = (method, url, params = "", data = {}) => API[method](`${url}?${params}`, data);
 
-const user = {
+const userApi = {
   add: data => req("post", "/user", "", data),
 };
 
-const room = {
+const roomApi = {
   add: data => req("post", "/room", "", data),
   getList: () => req("get", "/room-list")
 }
 
-export { API, user, room };
+export { API, userApi, roomApi };

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import RegisterForm from "../components/forms/RegisterForm";
-import { user } from "../api/index";
+import { userApi } from "../api/index";
 
 export default class Registration extends Component {
 
   handleSubmit = (values) => {
     console.log('FORM-DATA', values);
-    user.add(values)
+    userApi.add(values)
   };
 
   render() {

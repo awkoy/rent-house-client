@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Rooms.sass";
 import RoomItem from "../components/room/RoomItem";
-import { room } from "../api";
+import { roomApi } from "../api";
 
 export default class Rooms extends Component {
 
@@ -13,7 +13,7 @@ export default class Rooms extends Component {
     }
 
     async componentDidMount() {
-        const res = await room.getList();
+        const res = await roomApi.getList();
 
         this.setState({
             data: res.data.rooms
