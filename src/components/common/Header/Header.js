@@ -9,8 +9,8 @@ export default () => (
           <Link to="/">Rent House</Link>
         </div>
         <div className="header__nav">
-          <Link to="/registration">Sign up</Link>
-          <Link to="/login">Sign in</Link>
+          <Link className="room__sidebar__contact-button" to="/registration">Зарегистрироваться</Link>
+          <Link className="room__sidebar__contact-button" to="/login">Войти</Link>
         </div>
     </div>
   </header>

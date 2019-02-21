@@ -9,7 +9,7 @@ const LoginForm = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Email</label>
+        <label>Электронная почта</label>
         <div>
           <Field
             name="email"
@@ -20,7 +20,7 @@ const LoginForm = props => {
         </div>
       </div>
       <div>
-        <label>Password</label>
+        <label>Пароль</label>
         <div>
           <Field
             name="password"
@@ -31,7 +31,7 @@ const LoginForm = props => {
         </div>
       </div>
       <div>
-        <button type="submit">
+        <button type="submit" className="room__sidebar__contact-button">
           Submit
         </button>
       </div>

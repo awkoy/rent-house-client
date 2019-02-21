@@ -30,11 +30,11 @@ const scorePassword = pass => {
 const checkPassStrength = pass => {
     let score = scorePassword(pass);
     if (score > 80)
-        return "strong";
+        return "Сильный пароль";
     if (score > 60)
-        return "good";
+        return "Средний пароль";
     if (score >= 30)
-        return "weak";
+        return "Слабый пароль";
 
     return "";
 }

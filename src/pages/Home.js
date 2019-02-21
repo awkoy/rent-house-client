@@ -16,7 +16,7 @@ export default class Home extends Component {
 
     return (
       <div className="container">
-        {links.map(el => <Link to={el.path}>{el.name}</Link>)}
+        {links.map(el => <Link className="room__sidebar__contact-button" to={el.path}>{el.name}</Link>)}
       </div>
     );
   }

@@ -4,59 +4,59 @@ const validate = values => {
     const errors = {}
 
     if (!values.email) {
-        errors.email = 'Required';
+        errors.email = 'Введите пожалуйста ваш email';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email address';
+        errors.email = 'Введен некорректный email адрес';
     }
 
     if (!values.password) {
-        errors.password = 'Required';
+        errors.password = 'Введите пожалуйста пароль';
     } else if (values.password.length < 7) {
-        errors.password = 'Must be 6 characters or more';
+        errors.password = 'Пароль должен состоять из 6 или более символов';
     } else if (values.password.length > 16) {
-        errors.password = 'Must be 15 characters or less';
+        errors.password = 'Пароль не должен превышать 15 символов';
     }
 
     if (!values.title) {
-        errors.title = 'Required';
+        errors.title = 'Обязательное поле';
     }
 
     if (!values.description) {
-        errors.description = 'Required';
+        errors.description = 'Обязательное поле';
     }
 
     if (!values.price) {
-        errors.price = 'Required';
+        errors.price = 'Обязательное поле';
     }
 
     if (!values.subway) {
-        errors.subway = 'Required';
+        errors.subway = 'Обязательное поле';
     }
 
     if (!values.location) {
-        errors.location = 'Required';
+        errors.location = 'Обязательное поле';
     }
 
     if (!values.area) {
-        errors.area = 'Required';
+        errors.area = 'Обязательное поле';
     }
 
     if (!values.room_count) {
-        errors.room_count = 'Required';
+        errors.room_count = 'Обязательное поле';
     }
 
     if (!values.floor) {
-        errors.floor = 'Required';
+        errors.floor = 'Обязательное поле';
     }
 
     if (!values.floor_count) {
-        errors.floor_count = 'Required';
+        errors.floor_count = 'Обязательное поле';
     }
 
     if (!values.repassword) {
-        errors.repassword = 'Required';
+        errors.repassword = 'Обязательное поле';
     } else if (!(values.repassword === values.password)) {
-        errors.repassword = 'Must be identify with password';
+        errors.repassword = 'Пароли не совпадают';
     }
 
     return errors;

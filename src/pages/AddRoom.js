@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import AddRoomForm from "../components/forms/AddRoomForm";
-import { room } from "../api/index";
+import { roomApi } from "../api/index";
+import './AddRoom.sass'
 
 export default class Login extends Component {
 
   handleSubmit = (values) => {
     console.log('FORM-DATA', values);
-    room.add(values);
+    roomApi.add(values);
   };
 
   render() {
     return (
-      <div className="container">
-        <AddRoomForm onSubmit={this.handleSubmit} />
+      <div className="addroom ">
+        <div className="container">
+          <div className="addroom__title">Разместите обьявление</div>
+          <AddRoomForm onSubmit={this.handleSubmit} />
+        </div>
       </div>
     );
   }
