@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./components/common/Header/Header";
 
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
 import Rooms from './pages/Rooms';
@@ -23,6 +24,7 @@ class App extends Component {
           <Route path="/rooms" component={Rooms} />
           <Route path="/room/:id" component={Room} />
           <Route path="/add-room" component={AddRoom} />
+          <Route path="/profile" component={Profile} />
           <Route component={NotFound}/>
         </Switch>
       </>
