@@ -10,6 +10,7 @@ const req = (method, url, params = "", data = {}) => API[method](`${url}?${param
 
 const userApi = {
   add: data => req("post", "/user", "", data),
+  login: data => req("post", "/login", "", data)
 };
 
 const roomApi = {
