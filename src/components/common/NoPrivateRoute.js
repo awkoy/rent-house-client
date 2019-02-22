@@ -1,12 +1,11 @@
-import React from 'react';  
+import React from 'react';
+import { connect } from "react-redux";
 import { Redirect, Route } from 'react-router-dom';
+import { isAuth } from "../../store/user/selectors";
 
-// Utils
-import auth from '../../helpers/auth';
-
-const NoPrivateRoute = ({ component: Component, ...rest }) => (  
+const NoPrivateRoute = ({ component: Component, isAuth, ...rest }) => (  
   <Route {...rest} render={props => (
-    auth.getToken() == null ? (
+    !isAuth ? (
       <Component {...props} />
     ) : (
       <Redirect to={{
@@ -18,4 +17,10 @@ const NoPrivateRoute = ({ component: Component, ...rest }) => (
   )} />
 );
 
-export default NoPrivateRoute;
+const mapStateToProps = state => {
+  return {
+    isAuth: isAuth(state)
+  };
+};
+
+export default connect(mapStateToProps)(NoPrivateRoute);

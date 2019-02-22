@@ -1,12 +1,11 @@
 import React from 'react';  
+import { connect } from "react-redux";
 import { Redirect, Route } from 'react-router-dom';
+import { isAuth } from "../../store/user/selectors";
 
-// Utils
-import auth from '../../helpers/auth';
-
-const PrivateRoute = ({ component: Component, ...rest }) => (  
+const PrivateRoute = ({ component: Component, isAuth, ...rest }) => (  
   <Route {...rest} render={props => (
-    auth.getToken() !== null ? (
+    isAuth ? (
       <Component {...props} />
     ) : (
       <Redirect to={{
@@ -18,4 +17,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )} />
 );
 
-export default PrivateRoute;
+const mapStateToProps = state => {
+  return {
+    isAuth: isAuth(state)
+  };
+};
+
+export default connect(mapStateToProps)(PrivateRoute);

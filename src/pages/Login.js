@@ -1,42 +1,32 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { userLogin } from "../store/user/actions";
+import { error } from "../store/user/selectors";
 import LoginForm from "../components/forms/LoginForm";
-import { userApi } from "../api/index";
 
-export default class Login extends Component {
+class Login extends Component {
 
-  state = {
-    result: ''
-  };
-
-  handleSubmit = async (values) => {
-    console.log('FORM-DATA', values);
-    const data = await userApi.login(values);
-
-    const {
-      token,
-      user_info
-    } = data.data;
-    if (token) {
-      localStorage.setItem("rent-app-user-token", token);
-      localStorage.setItem("rent-app-user-info", user_info.email);
-      this.props.history.push('/');
-
-      return false;
-    }
-
-    this.setState({
-      result: data.data
-    })
-  };
+  handleSubmit = async (values) => this.props.userLogin(values);
 
   render() {
-    const { result } = this.state;
+    const { error } = this.props;
 
     return (
       <div className="container">
         <LoginForm onSubmit={this.handleSubmit} />
-        {result}
+        {error}
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    error: error(state)
+  };
+};
+
+const mapDispatchToProps = dispatch => bindActionCreators({ userLogin }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

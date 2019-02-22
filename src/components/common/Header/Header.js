@@ -1,21 +1,22 @@
 import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 import './Header.sass';
-import auth from "../../../helpers/auth";
+import { isAuth, userData } from "../../../store/user/selectors";
+import { userLogout } from "../../../store/user/actions";
 
-export default () => {
+const Header = ({ isAuth, userData, userLogout }) => {
 
-  const logout = () => auth.logOut();
-  const user = () => auth.user();
-  const navList = auth.getToken() == null ? (
+  const navList = isAuth ? (
+    <>
+      <span>{userData.email}</span>
+      <span className="room__sidebar__contact-button" onClick={userLogout} >Выйти</span>
+    </>
+  ) : (
     <>
       <Link className="room__sidebar__contact-button" to="/registration">Зарегистрироваться</Link>
       <Link className="room__sidebar__contact-button" to="/login">Войти</Link>
-    </>
-    ) : (
-    <>
-      <span>{localStorage.getItem("rent-app-user-info")}</span>
-      <Link className="room__sidebar__contact-button" to="/" onClick={logout}>Выйти</Link>
     </>);
   
   return (
@@ -31,3 +32,14 @@ export default () => {
     </header>
   )
 };
+
+const mapStateToProps = state => {
+  return {
+    isAuth: isAuth(state),
+    userData: userData(state)
+  };
+};
+
+const mapDispatchToProps = dispatch => bindActionCreators({ userLogout }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
